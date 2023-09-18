@@ -1,0 +1,82 @@
+.modal {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: #00000018;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .content {
+    background-color: #ffffff;
+    min-width: 350px;
+    min-height: 250px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    .scroll {
+      max-height: 80vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .title {
+      position: relative;
+      display: flex;
+      background-color: rgba(123, 129, 144, 0.09);
+      padding: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      span {
+        position: absolute;
+        right: -6px;
+        z-index: 999;
+        top: -6px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: box-shadow 0.3s ease;
+        &:hover {
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.28);
+        }
+      }
+    }
+    .language {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+      input {
+        margin-right: 10px;
+      }
+    }
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin-top: auto;
+      margin-bottom: 0;
+      input {
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        background-color: #28b765;
+        color: #ffffff;
+        margin-right: 15px;
+        cursor: pointer;
+      }
+      button {
+        margin: 0;
+      }
+    }
+  }
+}
