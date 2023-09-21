@@ -36,9 +36,6 @@ export default function Contacts() {
           </p>
           <iframe
             src={contacts?.contacts?.showroom?.map}
-            width='600'
-            height='450'
-            allowfullscreen=''
             loading='lazy'
             referrerpolicy='no-referrer-when-downgrade'
           ></iframe>
@@ -54,9 +51,6 @@ export default function Contacts() {
           </p>
           <iframe
             src={contacts?.contacts?.production?.map}
-            width='600'
-            height='450'
-            allowfullscreen=''
             loading='lazy'
             referrerpolicy='no-referrer-when-downgrade'
           ></iframe>

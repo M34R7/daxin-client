@@ -70,7 +70,12 @@ const news = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getNews.fulfilled, (state, { payload }) => {
-        state.news = payload.payload
+        const sortedNews = payload.payload.sort((a, b) => {
+          const dateA = new Date(a.createdAt)
+          const dateB = new Date(b.createdAt)
+          return dateB - dateA
+        })
+        state.news = sortedNews
         state.loading = false
       })
       .addCase(saveNews.fulfilled, (state, { payload }) => {

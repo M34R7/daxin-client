@@ -5,7 +5,6 @@ export const getContacts = createAsyncThunk(
   'contactsRequest/get',
   async (e, { rejectWithValue }) => {
     try {
-      console.log('try')
       const response = await request.get('contacts')
       return response.data
     } catch (error) {
@@ -45,7 +44,7 @@ const contacts = createSlice({
   extraReducers: builder => {
     builder
       .addCase(getContacts.fulfilled, (state, { payload }) => {
-        state.contacts = payload.payload.contacts
+        state.contacts = payload.payload
         state.loading = false
       })
       .addCase(saveContacts.fulfilled, (state, { payload }) => {

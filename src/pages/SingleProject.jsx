@@ -18,10 +18,17 @@ export default function SingleProject() {
   //Initialization data from server
   const allProjects = useSelector(state => state.newsReducer.news)
 
+  //Initialization state manager
+  const [currentProject, setCurrentProject] = useState(null)
+
   //Function for find current project
-  const currentProject = allProjects?.find(
-    project => project.title === projectId
-  )
+  useEffect(() => {
+    if (allProjects) {
+      setCurrentProject(
+        allProjects.find(project => project.title === projectId)
+      )
+    }
+  }, [projectId])
 
   //Request for get all projects
   useEffect(() => {

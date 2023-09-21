@@ -1,5 +1,4 @@
 //Import components
-import Modal from './Modal'
 import Icon from './Icon'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
@@ -28,43 +27,44 @@ export default function Header() {
 
   //Initialization language modal
   const modalLanguage = languageModal ? (
-    <Modal>
-      <div className='language'>
-        <button
-          onClick={() => {
-            changeLanguage('ro')
-            setLanguageModal(false)
-            navigate('/')
-          }}
-        >
-          Ro
-        </button>
-        <button
-          onClick={() => {
-            changeLanguage('ru')
-            setLanguageModal(false)
-            navigate('/')
-          }}
-        >
-          Ру
-        </button>
-        <button
-          onClick={() => {
-            changeLanguage('en')
-            setLanguageModal(false)
-            navigate('/')
-          }}
-        >
-          En
-        </button>
-      </div>
-    </Modal>
+    <div className='language-modal'>
+      <button
+        onClick={() => {
+          changeLanguage('ro')
+          setLanguageModal(false)
+          navigate('/')
+        }}
+      >
+        Ro
+      </button>
+      <button
+        onClick={() => {
+          changeLanguage('ru')
+          setLanguageModal(false)
+          navigate('/')
+        }}
+      >
+        Ру
+      </button>
+      <button
+        onClick={() => {
+          changeLanguage('en')
+          setLanguageModal(false)
+          navigate('/')
+        }}
+      >
+        En
+      </button>
+    </div>
   ) : null
 
   return (
     <header>
       <nav className='pc'>
-        <Link to='/'>
+        <Link
+          to='/'
+          className='logo'
+        >
           <img
             src={logo}
             alt='logo'
@@ -74,7 +74,10 @@ export default function Header() {
         <NavLink to='/projects'>{t('Projects')}</NavLink>
         <NavLink to='/blog'>{t('Blog')}</NavLink>
         <NavLink to='/contacts'>{t('Contacts')}</NavLink>
-        <button onClick={() => setLanguageModal(!languageModal)}>
+        <button
+          onClick={() => setLanguageModal(!languageModal)}
+          className='language-button'
+        >
           {i18n.language}
         </button>
         {modalLanguage}

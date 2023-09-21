@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 
 //Import styles
 import 'styles/terms.scss'
+import about from '../store/slices/about'
 
 export default function Terms() {
   //Initialization variables
@@ -17,19 +18,13 @@ export default function Terms() {
 
   //Request for get terms
   useEffect(() => {
-    if (!terms) {
-      dispatch(getTerms(i18n.language))
-    }
-  }, [terms, i18n.language])
+    dispatch(getTerms(i18n.language))
+  }, [i18n.language])
 
   return (
     <section className='terms'>
       <h2>Terms</h2>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: terms?.htmlStr,
-        }}
-      ></div>
+      <div dangerouslySetInnerHTML={{ __html: terms }}></div>
     </section>
   )
 }

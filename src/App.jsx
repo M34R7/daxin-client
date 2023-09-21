@@ -1,7 +1,7 @@
 //Import components
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Router from './Router'
 import './i18n'
+import Router from './Router'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 //Import pages
 import Home from './pages/Home'
@@ -39,12 +39,10 @@ export default function App() {
         {
           path: 'blog',
           element: <Blog />,
-          children: [
-            {
-              path: 'blog/:blogId',
-              element: <SingleNews />,
-            },
-          ],
+        },
+        {
+          path: 'blog/:blogId',
+          element: <SingleNews />,
         },
         {
           path: 'contacts',

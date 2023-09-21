@@ -7,29 +7,37 @@ import { useEffect } from 'react'
 //Import styles
 import 'styles/about.scss'
 
+//Import video
+import video from 'images/daxin.mp4'
+
 export default function About() {
   //Initialization variables
   const dispatch = useDispatch()
   const { t, i18n } = useTranslation()
 
   //Initialization data from server
-  const about = useSelector(state => state.aboutReducer.terms)
+  const about = useSelector(state => state.aboutReducer.about)
 
   //Request for get contacts
   useEffect(() => {
-    if (!about) {
-      dispatch(getAbout(i18n.language))
-    }
+    dispatch(getAbout(i18n.language))
   }, [about, i18n.language])
 
   return (
     <section className='about'>
       <h2>About</h2>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: about?.htmlStr,
-        }}
-      ></div>
+      <div dangerouslySetInnerHTML={{ __html: about }}></div>
+
+      <video
+        controls
+        autoPlay
+        muted
+      >
+        <source
+          src={video}
+          type='video/mp4'
+        />
+      </video>
     </section>
   )
 }

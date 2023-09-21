@@ -9,12 +9,13 @@ export default i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'ro',
-    debug: true,
+    fallbackLng: localStorage.getItem('i18nextLng') || 'ro',
+    debug: false,
     detection: {
-      order: ['queryString', 'cookie'],
-      cache: ['cookie'],
+      order: ['localstorage'],
+      cache: ['localstorage'],
     },
+
     interpolation: {
       escapeValue: false,
     },

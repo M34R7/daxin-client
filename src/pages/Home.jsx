@@ -1,5 +1,5 @@
 //Import components
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import Projects from './Projects'
 import { Link } from 'react-scroll'
 import { useDispatch, useSelector } from 'react-redux'
@@ -22,17 +22,12 @@ export default function Home() {
   const dispatch = useDispatch()
 
   //Initialization state manager
-  const [allNews, setAllNews] = useState(null)
   const news = useSelector(state => state.newsReducer.news)
 
   //Function for paste only three news
   useEffect(() => {
-    if (news) {
-      setAllNews(news.slice(0, 2))
-    } else {
-      dispatch(getNews(i18n.language))
-    }
-  }, [news, i18n.language])
+    dispatch(getNews(i18n.language))
+  }, [i18n.language])
 
   return (
     <>
@@ -61,16 +56,16 @@ export default function Home() {
       </section>
       <Projects />
       <Newsletter />
-      {allNews ? (
+      {news ? (
         <section className='home-news'>
           <h2>BLOG NEWS</h2>
           <div className='container'>
-            {allNews.map(child => {
+            {news.slice(0, 3).map(child => {
               return (
                 <div
                   className='item'
                   key={child._id}
-                  onClick={() => navigate('/news/' + child.id)}
+                  onClick={() => navigate('/blog/' + child.title)}
                 >
                   <img
                     src={child.imagePath}
@@ -87,7 +82,7 @@ export default function Home() {
               )
             })}
           </div>
-          <button onClick={() => navigate('/news')}>Read more</button>
+          <button onClick={() => navigate('/blog')}>Read more</button>
         </section>
       ) : null}
       <ContactForm />
