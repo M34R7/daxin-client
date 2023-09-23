@@ -8,6 +8,8 @@ import Newsletter from 'components/Newsletter'
 import ContactForm from 'components/ContactForm'
 import { getNews } from 'store/slices/news'
 import { useTranslation } from 'react-i18next'
+import { urlValidation } from '../helpers/regex'
+import { scrollToTop } from 'react-scroll/modules/mixins/animate-scroll'
 
 //Import images
 import scroll from 'images/scroll.svg'
@@ -34,9 +36,15 @@ export default function Home() {
       <section className='home-about'>
         <div>
           <h1>{t('videoHome')}</h1>
-          <button onClick={() => navigate('/about')}>{t('ReadMore')}</button>
+          <button
+            onClick={() => {
+              navigate('/about')
+            }}
+          >
+            {t('ReadMore')}
+          </button>
         </div>
-        <div>
+        <div className='scroll'>
           <Link
             to='projects'
             spy={true}
@@ -53,7 +61,7 @@ export default function Home() {
       </section>
       <Projects />
       <Newsletter />
-      {news && news.lenght ? (
+      {news && news.length ? (
         <section className='home-news'>
           <h2>{t('BlogNews')}</h2>
           <div className='container'>
@@ -62,7 +70,9 @@ export default function Home() {
                 <div
                   className='item'
                   key={child._id}
-                  onClick={() => navigate('/blog/' + child.title)}
+                  onClick={() => {
+                    navigate('/blog/' + urlValidation(child.title))
+                  }}
                 >
                   <img
                     src={child.imagePath}
@@ -80,7 +90,9 @@ export default function Home() {
             })}
           </div>
           <button
-            onClick={() => navigate('/blog')}
+            onClick={() => {
+              navigate('/blog')
+            }}
             className='readMore'
           >
             {t('ReadMore')}

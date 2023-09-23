@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { getNews } from 'store/slices/news'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { urlValidation } from '../helpers/regex'
 
 //Import styles
 import 'styles/singleProject.scss'
@@ -28,7 +29,9 @@ export default function SingleNews() {
   //Function for find current project
   useEffect(() => {
     if (allNews) {
-      setCurrentProject(allNews.find(project => project.title === blogId))
+      setCurrentProject(
+        allNews.find(project => urlValidation(project.title) === blogId)
+      )
     }
   }, [blogId, allNews])
 

@@ -19,6 +19,7 @@ export default function App() {
     {
       path: '/',
       element: <Router />,
+
       children: [
         {
           path: '/',

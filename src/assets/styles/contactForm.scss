@@ -51,7 +51,8 @@
     input[type='submit'] {
       background-color: transparent;
       border: 1px solid #000000;
-      width: 280px;
+      width: 100%;
+      max-width: 280px;
       cursor: pointer;
       height: 40px;
       border-radius: 5px;

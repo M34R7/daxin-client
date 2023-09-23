@@ -77,7 +77,9 @@ export default function Projects() {
         {allProjects && allProjects.length ? (
           allProjects.map(project => (
             <div
-              onClick={() => navigate(`/projects/${project.title}`)}
+              onClick={() => {
+                navigate(`/projects/${project.title}`)
+              }}
               key={project._id}
             >
               <h3>{project.title}</h3>

@@ -12,9 +12,11 @@ import logo from 'images/logo.svg'
 import { BsPencil, BsBriefcase } from 'react-icons/bs'
 import { HiOutlineDocumentText } from 'react-icons/hi'
 import { LiaPhoneVolumeSolid } from 'react-icons/lia'
+import { useDispatch } from 'react-redux'
 
 export default function Header() {
   //Initialization variables
+  const dispatch = useDispatch()
   const { t, i18n } = useTranslation()
   const changeLanguage = language => {
     i18n.changeLanguage(language)
@@ -32,6 +34,7 @@ export default function Header() {
         onClick={() => {
           changeLanguage('ro')
           setLanguageModal(false)
+
           navigate('/')
         }}
       >
@@ -41,6 +44,7 @@ export default function Header() {
         onClick={() => {
           changeLanguage('ru')
           setLanguageModal(false)
+
           navigate('/')
         }}
       >
@@ -50,6 +54,7 @@ export default function Header() {
         onClick={() => {
           changeLanguage('en')
           setLanguageModal(false)
+
           navigate('/')
         }}
       >
@@ -141,6 +146,7 @@ export default function Header() {
               onClick={() => {
                 changeLanguage('ro')
                 setLanguageModal(false)
+
                 navigate('/')
               }}
             >
@@ -150,6 +156,7 @@ export default function Header() {
               onClick={() => {
                 changeLanguage('ru')
                 setLanguageModal(false)
+
                 navigate('/')
               }}
             >
@@ -159,6 +166,7 @@ export default function Header() {
               onClick={() => {
                 changeLanguage('en')
                 setLanguageModal(false)
+
                 navigate('/')
               }}
             >
