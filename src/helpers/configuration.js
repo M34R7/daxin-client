@@ -3,8 +3,7 @@ import axios from 'axios'
 
 //Configuration for requests
 export const headers = {
-  Accept: 'application/json',
-  'Content-Type': 'application/json; charset=UTF-8',
+  'Content-Type': 'application/json',
 }
 export const url = 'http://api.daxin.md/api/'
 

@@ -83,7 +83,7 @@ export default function Projects() {
         {allProjects && allProjects.length ? (
           allProjects.map(project => (
             <div
-              onClick={() => navigate(`projects/${project.title}`)}
+              onClick={() => navigate(`/projects/${project.title}`)}
               key={project._id}
             >
               <h3>{project.title}</h3>
@@ -100,31 +100,4 @@ export default function Projects() {
       </div>
     </section>
   )
-}
-
-{
-  /* <div onClick={() => navigate('/projects/interior')}>
-<h3>INTERIOR</h3>
-<p>Read more</p>
-<img
-  src={interior}
-  alt='interior'
-/>
-</div>
-<div onClick={() => navigate('/projects/exterior')}>
-<h3>EXTERIOR</h3>
-<p>Read more</p>
-<img
-  src={exterior}
-  alt='exterior'
-/>
-</div>
-<div onClick={() => navigate('/projects/decor')}>
-<h3>Furniture & Decor</h3>
-<p>Read more</p>
-<img
-  src={mobilier}
-  alt='mobilier'
-/>
-</div> */
 }

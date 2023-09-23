@@ -5,20 +5,30 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   h2 {
     font-size: 35px;
     color: #343b49;
-  }
-  iframe {
-    width: 100%;
-    margin-top: 20px;
-    height: 350px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
   }
   .contact-form {
     h2 {
       display: none;
+    }
+  }
+  .contacts-data {
+    width: 100%;
+    max-width: 1100px;
+    div {
+      margin-bottom: 50px;
+      p {
+        max-width: 210px;
+      }
+      iframe {
+        width: 100%;
+        margin-top: 20px;
+        height: 350px;
+        margin-bottom: 20px;
+      }
     }
   }
 }

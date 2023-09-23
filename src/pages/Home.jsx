@@ -56,7 +56,7 @@ export default function Home() {
       </section>
       <Projects />
       <Newsletter />
-      {news ? (
+      {news && news.lenght ? (
         <section className='home-news'>
           <h2>BLOG NEWS</h2>
           <div className='container'>
@@ -82,7 +82,12 @@ export default function Home() {
               )
             })}
           </div>
-          <button onClick={() => navigate('/blog')}>Read more</button>
+          <button
+            onClick={() => navigate('/blog')}
+            className='readMore'
+          >
+            Read more
+          </button>
         </section>
       ) : null}
       <ContactForm />

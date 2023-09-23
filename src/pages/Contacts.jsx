@@ -14,7 +14,7 @@ export default function Contacts() {
       <h2>CONTACTS</h2>
       <div className='contacts-data'>
         <div>
-          <h2>SHOWROOM</h2>
+          <h3>SHOWROOM</h3>
           <p>Address: {contacts?.contacts?.showroom?.address}</p>
           <p>
             Phone:
@@ -37,11 +37,11 @@ export default function Contacts() {
           <iframe
             src={contacts?.contacts?.showroom?.map}
             loading='lazy'
-            referrerpolicy='no-referrer-when-downgrade'
+            referrerPolicy='no-referrer-when-downgrade'
           ></iframe>
         </div>
         <div>
-          <h2>PRODUCERE & DEPOZIT</h2>
+          <h3>PRODUCERE & DEPOZIT</h3>
           <p>Adress: {contacts?.contacts?.production?.address}</p>
           <p>
             Phone:
@@ -52,7 +52,7 @@ export default function Contacts() {
           <iframe
             src={contacts?.contacts?.production?.map}
             loading='lazy'
-            referrerpolicy='no-referrer-when-downgrade'
+            referrerPolicy='no-referrer-when-downgrade'
           ></iframe>
         </div>
       </div>

@@ -83,7 +83,10 @@ export default function Header() {
         {modalLanguage}
       </nav>
       <nav className='mobile'>
-        <Link to='/'>
+        <Link
+          to='/'
+          className='logo'
+        >
           <img
             src={logo}
             alt='logo'

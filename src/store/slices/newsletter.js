@@ -3,9 +3,9 @@ import { request } from 'helpers/configuration'
 
 export const saveMessages = createAsyncThunk(
   'newsletterRequest/messages',
-  async (e, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
     try {
-      const response = await request.get('messages')
+      const response = await request.post('message', data)
       return response.data
     } catch (error) {
       console.error('Ошибка во время выполнения запроса:', error)
@@ -16,9 +16,9 @@ export const saveMessages = createAsyncThunk(
 
 export const saveSubscriptions = createAsyncThunk(
   'newsletterRequest/subscriptions',
-  async (e, { rejectWithValue }) => {
+  async (data, { rejectWithValue }) => {
     try {
-      const response = await request.get('subscriptions')
+      const response = await request.post('subscription', data)
       return response.data
     } catch (error) {
       console.error('Ошибка во время выполнения запроса:', error)

@@ -14,19 +14,6 @@ export const getNews = createAsyncThunk(
   }
 )
 
-export const saveNews = createAsyncThunk(
-  'newsRequest/save',
-  async (data, { rejectWithValue }) => {
-    try {
-      const response = await request.post('news', data)
-      return response.data
-    } catch (error) {
-      console.error('Ошибка во время выполнения запроса:', error)
-      return rejectWithValue(error.response.data)
-    }
-  }
-)
-
 export const editNews = createAsyncThunk(
   'newsRequest/edit',
   async (data, { rejectWithValue }) => {
@@ -76,9 +63,6 @@ const news = createSlice({
           return dateB - dateA
         })
         state.news = sortedNews
-        state.loading = false
-      })
-      .addCase(saveNews.fulfilled, (state, { payload }) => {
         state.loading = false
       })
       .addCase(deleteNews.fulfilled, (state, { payload }) => {

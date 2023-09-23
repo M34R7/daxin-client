@@ -26,27 +26,31 @@ export default function Blog() {
     <section className='home-news'>
       <h2>BLOG NEWS</h2>
       <div className='container'>
-        {news?.map(child => {
-          return (
-            <div
-              className='item'
-              key={child._id}
-              onClick={() => navigate('/blog/' + child.title)}
-            >
-              <img
-                src={child.imagePath}
-                alt={child.title}
-              />
-              <span>
-                {new Date(child.createdAt)
-                  .toLocaleDateString('en-US')
-                  .replace(/\//g, '.')}
-              </span>
-              <h3>{child.title}</h3>
-              <p>{child.description}</p>
-            </div>
-          )
-        })}
+        {news && news.lenght ? (
+          news?.map(child => {
+            return (
+              <div
+                className='item'
+                key={child._id}
+                onClick={() => navigate('/blog/' + child.title)}
+              >
+                <img
+                  src={child.imagePath}
+                  alt={child.title}
+                />
+                <span>
+                  {new Date(child.createdAt)
+                    .toLocaleDateString('en-US')
+                    .replace(/\//g, '.')}
+                </span>
+                <h3>{child.title}</h3>
+                <p>{child.description}</p>
+              </div>
+            )
+          })
+        ) : (
+          <p>Nothing found</p>
+        )}
       </div>
     </section>
   )

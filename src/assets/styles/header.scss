@@ -18,6 +18,12 @@ header {
     max-width: 1200px;
     width: 100%;
     position: relative;
+    .logo {
+      margin-right: auto;
+      img {
+        width: 150px;
+      }
+    }
     .language-modal {
       display: flex;
       flex-direction: column;
@@ -30,12 +36,6 @@ header {
   .pc {
     display: none;
     height: 100%;
-    .logo {
-      margin-right: auto;
-      img {
-        width: 150px;
-      }
-    }
     .language-button {
       height: 35px;
       width: 35px;
@@ -49,6 +49,68 @@ header {
     }
   }
   .mobile {
+    position: relative;
+    padding: 10px;
+    .sub-menu {
+      top: 70px;
+      background-color: #ffffff;
+      padding: 10px;
+      width: 200px;
+      border-radius: 10px;
+      position: absolute;
+      right: -1300px;
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s ease;
+      box-shadow: 0 4px 5px rgba(1, 1, 1, 0.3);
+      gap: 10px;
+      .language {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        button {
+          background-color: #000000;
+          color: #ffffff;
+          border-radius: 50%;
+          width: 35px;
+          height: 35px;
+          font-size: 17px;
+        }
+      }
+      a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      &.active {
+        right: 5px;
+      }
+    }
+    .burger {
+      span {
+        width: 30px;
+        height: 5px;
+        margin: 4px;
+        border-radius: 5px;
+        display: block;
+        transition: transform 0.3s ease;
+        background-color: #000000;
+      }
+      &.active {
+        span:nth-of-type(1) {
+          transform: rotate(-50deg);
+        }
+        span:nth-of-type(2) {
+          display: none;
+        }
+        span:nth-of-type(3) {
+          transform: rotate(50deg);
+          margin-top: -9px;
+        }
+      }
+    }
   }
 }
 

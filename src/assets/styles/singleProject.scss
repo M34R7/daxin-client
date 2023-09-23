@@ -1,7 +1,29 @@
 .single-project {
-  margin-top: 100px;
+  margin-top: 80px;
   margin-bottom: 40px;
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    img {
+      width: 100%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    h2,
+    h3,
+    h4 {
+      text-align: center;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
   .title {
     font-size: 35px;
     color: #343b49;
@@ -10,7 +32,11 @@
     margin-bottom: 20px;
   }
   .slider {
+    width: 100%;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    .slick-arrow:before {
+      color: #000000 !important;
+    }
   }
 }

@@ -120,6 +120,16 @@
     font-size: 35px;
     color: #343b49;
   }
+  .readMore {
+    background-color: #343b49;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(1, 1, 1, 0.4);
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 20px;
+  }
 }
 
 @media only screen and (min-width: 1200px) {
