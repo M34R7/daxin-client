@@ -5,7 +5,7 @@ import axios from 'axios'
 export const headers = {
   'Content-Type': 'application/json',
 }
-export const url = 'http://api.daxin.md/api/'
+export const url = 'https://api.daxin.md/api/'
 
 export const request = axios.create({
   baseURL: url,
