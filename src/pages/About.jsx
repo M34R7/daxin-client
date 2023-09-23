@@ -25,9 +25,8 @@ export default function About() {
 
   return (
     <section className='about'>
-      <h2>About</h2>
+      <h2>{t('About')}</h2>
       <div dangerouslySetInnerHTML={{ __html: about }}></div>
-
       <video
         controls
         autoPlay

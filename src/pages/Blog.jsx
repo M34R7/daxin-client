@@ -24,7 +24,7 @@ export default function Blog() {
 
   return (
     <section className='home-news'>
-      <h2>BLOG NEWS</h2>
+      <h2>{t('BlogNews')}</h2>
       <div className='container'>
         {news && news.lenght ? (
           news?.map(child => {
@@ -49,7 +49,7 @@ export default function Blog() {
             )
           })
         ) : (
-          <p>Nothing found</p>
+          <p>{t('NothingFound')}</p>
         )}
       </div>
     </section>
