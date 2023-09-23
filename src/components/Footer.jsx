@@ -4,6 +4,7 @@ import { getContacts } from '../store/slices/contacts'
 import Icon from 'components/Icon'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 //Import styles
 import 'styles/footer.scss'
@@ -15,6 +16,7 @@ import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa'
 export default function Footer() {
   //Initialization variables
   const dispatch = useDispatch()
+  const { t, i18n } = useTranslation()
 
   //Initialization data from server
   const contacts = useSelector(state => state.contactsReducer.contacts)
@@ -35,22 +37,24 @@ export default function Footer() {
           />
           <div className='main-section'>
             <div>
-              <h2>SHOWROOM</h2>
-              <p>Address: {contacts?.contacts?.showroom?.address}</p>
+              <h2>{t('ShowRoom')}</h2>
               <p>
-                Phone:
+                {t('Adress')}: {contacts?.contacts?.showroom?.address}
+              </p>
+              <p>
+                {t('Phone')}:
                 <a href={`tel:${contacts?.contacts?.showroom?.phone1}`}>
                   {contacts?.contacts?.showroom?.phone1}
                 </a>
               </p>
               <p>
-                Phone:
+                {t('Phone')}:
                 <a href={`tel:${contacts?.contacts?.showroom?.phone2}`}>
                   {contacts?.contacts?.showroom?.phone2}
                 </a>
               </p>
               <p>
-                Email:
+                {t('Email')}:
                 <a href={`mailto:${contacts?.contacts?.showroom?.email}`}>
                   {contacts?.contacts?.showroom?.email}
                 </a>
@@ -92,17 +96,19 @@ export default function Footer() {
               </div>
             </div>
             <div>
-              <h2>PRODUCERE & DEPOZIT</h2>
-              <p>Adress: {contacts?.contacts?.production?.address}</p>
+              <h2>{t('Production')}</h2>
               <p>
-                Phone:
+                {t('Adress')}: {contacts?.contacts?.production?.address}
+              </p>
+              <p>
+                {t('Phone')}:
                 <a href={`tel:+${contacts?.contacts?.production?.phone}`}>
                   {contacts?.contacts?.production?.phone}
                 </a>
               </p>
             </div>
             <div>
-              <h2>PROJECTS</h2>
+              <h2>{t('Projects')}</h2>
               <a
                 href='https://stonedecorum.com/ro/catalog/stone-center'
                 target='_blank'
@@ -130,8 +136,8 @@ export default function Footer() {
       </section>
       <section>
         <p>
-          Copyright © {new Date().getFullYear()} Daxin-Bit SRL.
-          <Link to='/terms'>All Rights Reserved</Link>.
+          {t('Copyright')} © {new Date().getFullYear()} Daxin-Bit SRL.
+          <Link to='/terms'>{t('Rights')}</Link>.
         </p>
       </section>
     </footer>

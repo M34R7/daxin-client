@@ -2,6 +2,7 @@
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { saveMessages } from '../store/slices/newsletter'
+import { useTranslation } from 'react-i18next'
 
 //Import styles
 import '../assets/styles/contactForm.scss'
@@ -9,6 +10,7 @@ import '../assets/styles/contactForm.scss'
 export default function ContactForm() {
   //Initialization variables
   const dispatch = useDispatch()
+  const { t, i18n } = useTranslation()
 
   //Initialization form manager
   const {
@@ -32,14 +34,11 @@ export default function ContactForm() {
 
   return (
     <section className='contact-form'>
-      <h2>CONTACT</h2>
-      <p className='description'>
-        For any information, you can contact us by filling in the form below.
-        Thank you. (*) Required fields
-      </p>
+      <h2>{t('Contact')}</h2>
+      <p className='description'>{t('ContactDescription')}</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>
-          <p>Name*</p>
+          <p>{t('Name')}*</p>
           <input
             type='text'
             {...register('modal.name', {
@@ -48,7 +47,7 @@ export default function ContactForm() {
           />
         </label>
         <label>
-          <p>E-mail*</p>
+          <p>{t('Email')}*</p>
           <input
             type='text'
             {...register('modal.email', {
@@ -57,7 +56,7 @@ export default function ContactForm() {
           />
         </label>
         <label>
-          <p>Phone*</p>
+          <p>{t('Phone')}*</p>
           <input
             type='number'
             {...register('modal.phone', {
@@ -66,7 +65,7 @@ export default function ContactForm() {
           />
         </label>
         <label>
-          <p>Your message*</p>
+          <p>{t('Message')}*</p>
           <textarea
             {...register('modal.message', {
               required: 'This field is required',
@@ -87,7 +86,7 @@ export default function ContactForm() {
         </label>
         <input
           type='submit'
-          value={'Send'}
+          value={t('Send')}
           disabled={!isValid}
         />
       </form>

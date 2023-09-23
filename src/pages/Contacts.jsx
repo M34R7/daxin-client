@@ -1,35 +1,41 @@
 //Import components
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import ContactForm from 'components/ContactForm'
+import { useTranslation } from 'react-i18next'
 
 //Import styles
 import 'styles/contacts.scss'
 
 export default function Contacts() {
+  //Initialization variables
+  const { t, i18n } = useTranslation()
+
   //Initialization state manager
   const contacts = useSelector(state => state.contactsReducer.contacts)
 
   return (
     <section className='contacts'>
-      <h2>CONTACTS</h2>
+      <h2>{t('Contacts')}</h2>
       <div className='contacts-data'>
         <div>
-          <h3>SHOWROOM</h3>
-          <p>Address: {contacts?.contacts?.showroom?.address}</p>
+          <h3>{t('ShowRoom')}</h3>
           <p>
-            Phone:
+            {t('Adress')}: {contacts?.contacts?.showroom?.address}
+          </p>
+          <p>
+            {t('Phone')}:
             <a href={`tel:${contacts?.contacts?.showroom?.phone1}`}>
               {contacts?.contacts?.showroom?.phone1}
             </a>
           </p>
           <p>
-            Phone:
+            {t('Phone')}:
             <a href={`tel:${contacts?.contacts?.showroom?.phone2}`}>
               {contacts?.contacts?.showroom?.phone2}
             </a>
           </p>
           <p>
-            Email:
+            {t('Email')}:
             <a href={`mailto:${contacts?.contacts?.showroom?.email}`}>
               {contacts?.contacts?.showroom?.email}
             </a>
@@ -41,10 +47,12 @@ export default function Contacts() {
           ></iframe>
         </div>
         <div>
-          <h3>PRODUCERE & DEPOZIT</h3>
-          <p>Adress: {contacts?.contacts?.production?.address}</p>
+          <h3>{t('Production')}</h3>
           <p>
-            Phone:
+            {t('Adress')}: {contacts?.contacts?.production?.address}
+          </p>
+          <p>
+            {t('Phone')}:
             <a href={`tel:+${contacts?.contacts?.production?.phone}`}>
               {contacts?.contacts?.production?.phone}
             </a>

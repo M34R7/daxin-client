@@ -3,12 +3,14 @@ import { useState, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { useDispatch } from 'react-redux'
 import { saveSubscriptions } from '../store/slices/newsletter'
+import { useTranslation } from 'react-i18next'
 
 //Import styles
 import '../assets/styles/newsletter.scss'
 
 export default function Newsletter() {
   //Initialization variables
+  const { t, i18n } = useTranslation()
   const modalBlock = useRef(null)
   const dispatch = useDispatch()
 
@@ -60,14 +62,14 @@ export default function Newsletter() {
         onClick={e => e.stopPropagation()}
       >
         <div>
-          <h2>Newsletter</h2>
+          <h2>{t('Newsletter')}</h2>
           <span onClick={() => setModal(false)}>X</span>
         </div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <label>
-            <p>Name*</p>
+            <p>{t('Name')}*</p>
             <input
-              placeholder='How can we contact you?'
+              placeholder={t('NamePlaceholder')}
               type='text'
               {...register('modal.name', {
                 required: 'This field is required',
@@ -75,9 +77,9 @@ export default function Newsletter() {
             />
           </label>
           <label>
-            <p>E-mail*</p>
+            <p>{t('Email')}*</p>
             <input
-              placeholder='Enter your email address'
+              placeholder={t('EmailPlaceholder')}
               type='text'
               {...register('modal.email', {
                 required: 'This field is required',
@@ -85,9 +87,9 @@ export default function Newsletter() {
             />
           </label>
           <label>
-            <p>Phone*</p>
+            <p>{t('Phone')}*</p>
             <input
-              placeholder='Your phone number'
+              placeholder={t('PhonePlaceholder')}
               type='number'
               {...register('modal.phone', {
                 required: 'This field is required',
@@ -96,7 +98,7 @@ export default function Newsletter() {
           </label>
           <input
             type='submit'
-            value={'SUBSCRIBE'}
+            value={t('Subscribe')}
             disabled={!isValid}
           />
         </form>
@@ -108,14 +110,10 @@ export default function Newsletter() {
     <section className='newsletter'>
       <div className='container'>
         <div>
-          <h2>NEWSLETTER</h2>
-          <p>
-            Subscribe to our newsletter and be the first one to know about our
-            company’s highlights, new products and services as well as special
-            offers.
-          </p>
+          <h2>{t('Newsletter')}</h2>
+          <p>{t('NewsletterDescription')}</p>
         </div>
-        <button onClick={() => setModal(!modal)}>SUBSCRIBE</button>
+        <button onClick={() => setModal(!modal)}>{t('Subscribe')}</button>
       </div>
       {newsletterModal}
     </section>

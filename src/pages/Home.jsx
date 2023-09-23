@@ -33,11 +33,8 @@ export default function Home() {
     <>
       <section className='home-about'>
         <div>
-          <h1>
-            We create original products from natural stone in which innovation
-            and authenticity blend together into one ecological concept.
-          </h1>
-          <button onClick={() => navigate('/about')}>Read more</button>
+          <h1>{t('videoHome')}</h1>
+          <button onClick={() => navigate('/about')}>{t('ReadMore')}</button>
         </div>
         <div>
           <Link
@@ -46,7 +43,7 @@ export default function Home() {
             smooth={true}
             duration={250}
           >
-            <p>SCROLL DOWN</p>
+            <p>{t('ScrollDown')}</p>
             <img
               src={scroll}
               alt='scroll'
@@ -58,7 +55,7 @@ export default function Home() {
       <Newsletter />
       {news && news.lenght ? (
         <section className='home-news'>
-          <h2>BLOG NEWS</h2>
+          <h2>{t('BlogNews')}</h2>
           <div className='container'>
             {news.slice(0, 3).map(child => {
               return (
@@ -86,7 +83,7 @@ export default function Home() {
             onClick={() => navigate('/blog')}
             className='readMore'
           >
-            Read more
+            {t('ReadMore')}
           </button>
         </section>
       ) : null}

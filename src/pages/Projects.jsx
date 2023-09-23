@@ -29,12 +29,8 @@ export default function Projects() {
       className='home-projects'
       id='projects'
     >
-      <h2>DIRECTIONS OF ACTIVITY</h2>
-      <p className='description'>
-        We are always up-to-date with current market trends, we offer a wide
-        range of natural stone products and French fireplaces, capable of
-        satisfying the highest demands.
-      </p>
+      <h2>{t('Directions')}</h2>
+      <p className='description'>{t('DirectionDescription')}</p>
       <div className='container'>
         <div
           onClick={() =>
@@ -45,7 +41,7 @@ export default function Projects() {
           }
         >
           <h3>STONECENTER</h3>
-          <p>Read more</p>
+          <p>{t('ReadMore')}</p>
           <img
             src={stonecenter}
             alt='stonecenter'
@@ -60,7 +56,7 @@ export default function Projects() {
           }
         >
           <h3>STONEDECORUM</h3>
-          <p>Read more</p>
+          <p>{t('ReadMore')}</p>
           <img
             src={stonedecorum}
             alt='stonedecorum'
@@ -68,17 +64,15 @@ export default function Projects() {
         </div>
         <div onClick={() => window.open('https://seminee.md/', '_blank')}>
           <h3>SEMINEE.MD</h3>
-          <p>Read more</p>
+          <p>{t('ReadMore')}</p>
           <img
             src={seminee}
             alt='seminee'
           />
         </div>
       </div>
-      <h2>COMPLETED PROJECTS</h2>
-      <p className='description'>
-        Discover the power and nobility of natural stone in our products.
-      </p>
+      <h2>{t('CompletedProjects')}</h2>
+      <p className='description'>{t('CompletedProjectsDescription')}</p>
       <div className='container'>
         {allProjects && allProjects.length ? (
           allProjects.map(project => (
@@ -87,7 +81,7 @@ export default function Projects() {
               key={project._id}
             >
               <h3>{project.title}</h3>
-              <p>Read more</p>
+              <p>{t('ReadMore')}</p>
               <img
                 src={project.previewImagePath}
                 alt={project.title}
@@ -95,7 +89,7 @@ export default function Projects() {
             </div>
           ))
         ) : (
-          <p>Nothing found</p>
+          <p>{t('NothingFound')}</p>
         )}
       </div>
     </section>
