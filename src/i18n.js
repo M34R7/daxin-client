@@ -10,7 +10,7 @@ export default i18n
   .use(initReactI18next)
   .init({
     fallbackLng: localStorage.getItem('i18nextLng') || 'ro',
-    debug: false,
+    debug: true,
     detection: {
       order: ['localstorage'],
       cache: ['localstorage'],

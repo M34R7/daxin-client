@@ -17,4 +17,7 @@ export default defineConfig({
       helpers: path.resolve(root, 'src/helpers'),
     },
   },
+  server: {
+    port: 3000,
+  },
 })
