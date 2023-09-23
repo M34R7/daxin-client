@@ -1,10 +1,10 @@
-# Daxin Admin Panel
+# Daxin Web Site
 
 Daxin Web Site is a web application for all clients of Daxin. It is developed using React, Vite, and SCSS, and utilizes several popular libraries such as Axios, React Hook Form, Redux, and React Router DOM.
 
 ## Getting Started
 
-These instructions will help you get a copy of the Daxin Admin Panel up and running on your local machine for development and testing purposes.
+These instructions will help you get a copy of the Daxin Web Site up and running on your local machine for development and testing purposes.
 
 ## Prerequisites
 
