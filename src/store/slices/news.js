@@ -69,7 +69,6 @@ const news = createSlice({
             return news
           }
         })
-        console.log(httpsNews)
         state.news = httpsNews
         state.loading = false
       })

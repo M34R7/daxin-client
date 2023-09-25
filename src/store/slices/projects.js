@@ -55,7 +55,6 @@ const projects = createSlice({
 
         return project
       })
-      console.log(httpsProjects)
       state.projects = httpsProjects
     })
   },
