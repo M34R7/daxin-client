@@ -31,7 +31,7 @@ export default function Newsletter() {
   //Initialization state manager
   const [modal, setModal] = useState(false)
 
-  //Function for  close modal
+  //Function for close modal
   useEffect(() => {
     const mouseUp = e => {
       if (e.target === modalBlock.current) {

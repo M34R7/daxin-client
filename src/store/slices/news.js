@@ -62,7 +62,15 @@ const news = createSlice({
           const dateB = new Date(b.createdAt)
           return dateB - dateA
         })
-        state.news = sortedNews
+
+        const httpsNews = sortedNews.map(news => {
+          if (news.imagePath.startsWith('http://')) {
+            news.imagePath = news.imagePath.replace('http://', 'https://')
+            return news
+          }
+        })
+        console.log(httpsNews)
+        state.news = httpsNews
         state.loading = false
       })
       .addCase(deleteNews.fulfilled, (state, { payload }) => {
